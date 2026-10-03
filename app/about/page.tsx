@@ -4,7 +4,7 @@ import { SeoLink } from "@/components/SeoLink";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "About ImageResizeLab",
+  title: "About",
   description:
     "ImageResizeLab is a free browser lab: image resizer, JPG compressor, PNG compressor, WebP converter, cropper, and favicon generator. Photos never upload.",
   path: "/about",

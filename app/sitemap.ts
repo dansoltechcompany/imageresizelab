@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [...new Set(["/", "/about", "/privacy", "/terms", "/contact", ...ALL_TOOLS.map((tool) => tool.href)])];
   return paths.map((path) => ({
     url: loc(path),
+    lastModified: "2026-10-03",
     changeFrequency: "weekly" as const,
     priority:
       path === "/"

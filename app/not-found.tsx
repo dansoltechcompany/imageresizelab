@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
+
+export const metadata: Metadata = {
+  title: { absolute: "Page not found | ImageResizeLab" },
+  robots: { index: false, follow: true },
+};
 
 const LINKS = [
   { href: "/", title: "Image resizer" },

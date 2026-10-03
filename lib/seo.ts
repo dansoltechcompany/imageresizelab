@@ -6,6 +6,13 @@ function absUrl(path: string) {
   return `${SITE_URL}${path.endsWith("/") ? path : `${path}/`}`;
 }
 
+const OG_IMAGE = {
+  url: "/og.png",
+  width: 1200,
+  height: 630,
+  alt: "ImageResizeLab — free image resizer and photo tools",
+} as const;
+
 export function pageMeta({
   title,
   description,
@@ -16,21 +23,26 @@ export function pageMeta({
   path: string;
 }): Metadata {
   const url = absUrl(path);
+  // The root layout template does not apply to app/page.tsx (same segment).
+  // Pin the homepage title so the brand is in the SERP, once.
+  const fullTitle = path === "/" ? `${title} | ${SITE_NAME}` : title;
   return {
-    title,
+    title: path === "/" ? { absolute: fullTitle } : title,
     description,
     alternates: { canonical: url },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url,
       type: "website",
       siteName: SITE_NAME,
+      images: [OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
+      images: [OG_IMAGE.url],
     },
   };
 }

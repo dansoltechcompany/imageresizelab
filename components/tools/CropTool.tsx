@@ -99,7 +99,7 @@ export function CropTool({
     function move(e: PointerEvent) {
       const p = clientToNorm(e.clientX, e.clientY);
       setCrop((c) => {
-        let next = { ...c };
+        const next = { ...c };
         if (drag === "move") {
           next.x = Math.min(1 - c.w, Math.max(0, p.x - dragOff.current.x));
           next.y = Math.min(1 - c.h, Math.max(0, p.y - dragOff.current.y));
